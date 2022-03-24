@@ -20,6 +20,10 @@ const cartSlice = createSlice ({
             else {
                 state.items.index.amount++
             }
+        },
+        removeItem () {},
+        toggleCart (state) {
+            state.cartVisible = !state.cartVisible
         }
     }
 })

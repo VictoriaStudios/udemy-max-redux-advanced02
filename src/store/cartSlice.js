@@ -4,7 +4,7 @@ import { shopItems } from "../shopitems/shopitems";
 const initialState = {
     cartVisible:true,
     items: [
-        {item: shopItems.testItem, amount: 3}
+        {item: shopItems.testItem, amount: 3},
     ]
 }
 

@@ -11,6 +11,11 @@ const Products = (props) => {
           item={shopItems.testItem}
         />
       </ul>
+      <ul>
+        <ProductItem
+          item={shopItems.luxuryItem}
+        />
+      </ul>
     </section>
   );
 };

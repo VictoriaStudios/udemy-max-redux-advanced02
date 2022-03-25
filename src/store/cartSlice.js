@@ -1,10 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { shopItems } from "../shopitems/shopitems";
 
 const initialState = {
     cartVisible:true,
     items: [
-        {item: shopItems.testItem, amount: 3},
     ]
 }
 

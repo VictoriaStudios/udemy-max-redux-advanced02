@@ -33,6 +33,10 @@ const cartSlice = createSlice ({
         },
         toggleCart (state) {
             state.cartVisible = !state.cartVisible
+        },
+        setCart (state, action) {
+            state.cartVisible = action.payload.cartVisible
+            state.items = action.payload.items
         }
     }
 })

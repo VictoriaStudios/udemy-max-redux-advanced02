@@ -13,15 +13,26 @@ const cartSlice = createSlice ({
     initialState: initialState,
     reducers: {
         addItem (state,action) {
-            const index = state.items.findIndex (element => element.item === action.item)
+            const index = state.items.findIndex (element => element.item.name === action.payload.name)
             if (index === -1) {
-                state.items.push ({item:action.item, amount: 1})
+                state.items.push ({item:action.payload, amount: 1})
             }
             else {
-                state.items.index.amount++
+                state.items[index].amount++
             }
         },
-        removeItem () {},
+        removeItem (state, action) {
+            const index = state.items.findIndex (element => element.item.name === action.payload.name)
+            if (index === -1) {
+                return
+            }
+            else if (state.items[index].amount > 1){
+                state.items[index].amount--
+            }
+            else if (state.items[index].amount === 1) {
+                state.items.splice (index,1)
+            }
+        },
         toggleCart (state) {
             state.cartVisible = !state.cartVisible
         }

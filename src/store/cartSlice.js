@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { getCart } from "../utilities/databaseHandler";
 
 const initialState = {
     cartVisible:true,
@@ -40,6 +41,22 @@ const cartSlice = createSlice ({
         }
     }
 })
+
+export const fetchCartData = () => {
+    return async dispatch => {
+        const fetchData = async () => {
+               const data = await getCart()
+                return data
+        }
+        try {
+            const cartData = await fetchData()
+            dispatch(cartActions.setCart(cartData))
+        } catch (error) {
+            console.log (error)
+        }
+    }
+}
+
 
 export const cartActions = cartSlice.actions
 

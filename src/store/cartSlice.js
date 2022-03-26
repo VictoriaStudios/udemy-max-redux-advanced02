@@ -50,7 +50,10 @@ export const fetchCartData = () => {
         }
         try {
             const cartData = await fetchData()
-            dispatch(cartActions.setCart(cartData))
+            dispatch(cartActions.setCart({
+                ...cartData,
+                items:cartData.items || []
+            }))
         } catch (error) {
             console.log (error)
         }
